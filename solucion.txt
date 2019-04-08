@@ -1,0 +1,81 @@
+proc
+	(numero_auto, i [1,100])
+	(marca_auto, b[1,4])
+	(costo_auto, d[0,100000])
+	(argentina, i[1,100])
+	(colombia, i[i,100])
+	(chile, i [1,100])
+	(otro, i[1,100])
+	(autos_ingresados, i[1-100])
+	(impuesto, d[0,100000])
+	(contador, b[1,100])
+	(total_costo_autos, d[1,100000])
+	(precio_venta, d[1,1000000])
+	Escribir "Bienvenido a la concesionaria Torres, por favor digite el número de autos a ingresar"
+	leer autos_ingresados
+	contador<--1 
+	impuesto<--0
+	Mientras_que contador<=autos_ingresados Hacer
+		Escribir "Ingrese el país de origen del vehículo"
+		Escribir "1. Argentina"
+		Escribir "2. Colombia"
+		Escribir "3. Chile"
+		Escribir "4. Otro"
+		Leer marca_auto
+		Si marca_auto=1 entonces
+			argentina<-- argentina+1
+			Escribir "Ingrese el precio del vehíchulo"
+			Leer costo_auto
+			total_costo_auto<--total_costo_auto+costo_auto
+			impuesto<--impuesto + (costo_auto*0.40)
+			precio_venta<--impuesto+costo_auto
+		Fin_Si
+		Sino
+			si marca_auto=2 entonces
+				Colombia<-- argentina+1
+				Escribir "Ingrese el precio del vehíchulo"
+				Leer costo_auto
+				total_costo_auto<--total_costo_auto+costo_auto
+				impuesto<--impuesto + (costo_auto*0.40)
+				precio_venta<--impuesto+costo_auto	
+			Fin_si
+		Sino
+			Si marca_auto=3 entones
+				chile<-- chile+1
+				Escribir "Ingrese el precio del vehíchulo"
+				Leer costo_auto
+				total_costo_auto<--total_costo_auto+costo_auto
+				impuesto<--impuesto + (costo_auto*0.40)
+				precio_venta<--impuesto+costo_auto
+			Fin_Si
+		Sino
+			Si marca_auto=4 entonces
+				otro<-- otro+1
+				Escribir "Ingrese el precio del vehíchulo"
+				Leer costo_auto
+				total_costo_auto<--total_costo_auto+costo_auto
+				impuesto<--impuesto + (costo_auto*0.40)
+				precio_venta<--impuesto+costo_auto
+			Fin_Si
+		Fin_Si
+		contador<--contador+1
+	Fin_Mientras
+	contador<--contador-1
+	Escribir "El total de vehículo importados es: "+contador
+	Escribir "El costo total de los vehículos sin impuesto es: "+total_costo_auto
+	Escribir "El costo total de impuestos generados es: "+ impuestos
+	Escribir "El costo total de los vehículos con impuesto es de: "+precio_venta
+	Si argentina>=1 entonces
+		Escribir "El número de autos provenientes de argentina es de: "+argentina
+	Sino
+		Si colombia >=1 entonces
+			Escribir "El número de autos provenientes de Colmbia es de: "+colombia
+		Fin_si
+	Sino
+		Si chile >=1 entonces
+			Escribir "El número de autos provenientes de Chile es de: "+chile
+		Fin_Si
+	Sino
+		Si otro >=1 entonces 
+			Escribir "El número de autos provenientes otros paises es de"+otro
+Fin_proc
